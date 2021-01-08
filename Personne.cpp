@@ -87,9 +87,20 @@ bool Personne::operator>(const Personne &rhs) const {
 }
 
 bool Personne::operator<=(const Personne &rhs) const {
-    return !(rhs < *this);
+    return !(rhs < *this) && m_dateNaissance == rhs.m_dateNaissance ;
 }
 
 bool Personne::operator>=(const Personne &rhs) const {
     return !(*this < rhs);
+}
+
+bool Personne::operator==(const Personne &rhs) const {
+    return m_nom == rhs.m_nom &&
+           m_prenom == rhs.m_prenom &&
+           sexe == rhs.sexe &&
+           m_Nas == rhs.m_Nas;
+}
+
+bool Personne::operator!=(const Personne &rhs) const {
+    return !(rhs == *this);
 }

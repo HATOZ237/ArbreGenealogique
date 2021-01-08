@@ -7,6 +7,7 @@
 
 #include "Personne.h"
 #include <vector>
+#include <ostream>
 
 class Enfant: public Personne{
 private:
@@ -15,6 +16,16 @@ public:
     Enfant(const std::string &mNom, const std::string &mPrenom, const std::string &mVilleNaissance,
            const util::Date &mDateNaissance, char sexe, const std::string &mNas, const util::Date &mDateDeces,
            bool statut, const std::string &mGroupeSanguin);
+
+    virtual ~Enfant();
+
+    friend std::ostream &operator<<(std::ostream &os, const Enfant &enfant);
+
+    void AjouterFrere(const Enfant& enfant);
+
+    void retirerFrere(const Enfant& enfant);
+
+    bool EstFrere();
 
 
 };

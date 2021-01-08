@@ -12,3 +12,24 @@ Enfant::Enfant(const std::string &mNom, const std::string &mPrenom, const std::s
                                                                           statut, mGroupeSanguin) {
 
 }
+
+Enfant::~Enfant() {
+
+}
+
+std::ostream &operator<<(std::ostream &os, const Enfant &enfant) {
+
+    return os;
+}
+
+void Enfant::AjouterFrere(const Enfant &enfant) {
+
+}
+
+void Enfant::retirerFrere(const Enfant &enfant) {
+
+}
+
+bool Enfant::EstFrere() {
+    return false;
+}
