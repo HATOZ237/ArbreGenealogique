@@ -124,3 +124,46 @@ const std::tuple<int, int, int> &Personne::getMDateNaissance() const {
 Personne *Personne::clone() const {
     return new Personne(*this);
 }
+
+Personne &Personne::operator=(const Personne &personne) {
+    if(this == &personne)
+    {
+        m_dateNaissance = personne.m_dateNaissance;
+        m_nom = personne.m_nom;
+        m_Nas = personne.m_Nas;
+        m_groupeSanguin = personne.m_groupeSanguin;
+        statut = personne.isStatut();
+        m_dateNaissance = personne.m_dateNaissance;
+        m_dateDeces = personne.m_dateDeces;
+        sexe = personne.sexe;
+        for(auto iter:m_vFreres)
+        {
+            delete iter;
+        }
+        for(const auto iter : personne.m_vFreres)
+        {
+            m_vFreres.push_back(iter->clone());
+        }
+    }
+    return *this;
+}
+
+void Personne::setMNom(const std::string &mNom) {
+    m_nom = mNom;
+}
+
+void Personne::setMPrenom(const std::string &mPrenom) {
+    m_prenom = mPrenom;
+}
+
+void Personne::setMVilleNaissance(const std::string &mVilleNaissance) {
+    m_villeNaissance = mVilleNaissance;
+}
+
+void Personne::setMDateNaissance(const std::tuple<int, int, int> &mDateNaissance) {
+    m_dateNaissance = mDateNaissance;
+}
+
+void Personne::setSexe(char sexe) {
+    Personne::sexe = sexe;
+}

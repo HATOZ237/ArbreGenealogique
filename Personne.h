@@ -16,7 +16,8 @@
 typedef std::tuple<int, int, int> Tuple;
 
 class Personne {
-private:
+protected:
+    std::vector<Personne *> m_vFreres;
     std::string m_nom;
     std::string m_prenom;
     std::string m_villeNaissance;
@@ -26,9 +27,8 @@ private:
     std::string m_groupeSanguin;
     std::tuple<int, int, int> m_dateDeces;
     bool statut;
-protected:
-    std::vector<Personne *> m_vFreres;
 public:
+    static Tuple dateDeces = std::make_tuple(31, 12, 9999);
     virtual ~Personne();
 
     virtual std::string reqPersonneFormate() const;
@@ -82,6 +82,18 @@ public:
     void setMDateDeces(const std::tuple<int, int, int> &mDateDeces);
 
     const std::tuple<int, int, int> &getMDateNaissance() const;
+
+    Personne &operator=(const Personne & personne);
+
+    void setMNom(const std::string &mNom);
+
+    void setMPrenom(const std::string &mPrenom);
+
+    void setMVilleNaissance(const std::string &mVilleNaissance);
+
+    void setMDateNaissance(const std::tuple<int, int, int> &mDateNaissance);
+
+    void setSexe(char sexe);
 
 };
 
