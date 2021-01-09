@@ -5,7 +5,7 @@
 #include "Personne.h"
 #include <sstream>
 
-
+static Tuple dateDeces = std::make_tuple(31, 12, 9999);
 const std::string &Personne::getMNom() const {
     return m_nom;
 }
@@ -98,7 +98,7 @@ bool Personne::operator!=(const Personne &rhs) const {
 
 Personne::Personne(const std::string &mNom, const std::string &mPrenom, const std::string &mVilleNaissance,
                    const Tuple &mDateNaissance, char sexe, const std::string &mNas,
-                   const std::string &mGroupeSanguin, const Tuple &mDateDeces, bool statut) : m_nom(
+                   const std::string &mGroupeSanguin, const Tuple &mDateDeces = dateDeces, bool statut = false) : m_nom(
         mNom), m_prenom(mPrenom), m_villeNaissance(mVilleNaissance), m_dateNaissance(mDateNaissance), sexe(sexe),
                                                                                               m_Nas(mNas),
                                                                                               m_groupeSanguin(

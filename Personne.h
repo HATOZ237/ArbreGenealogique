@@ -27,8 +27,8 @@ protected:
     std::string m_groupeSanguin;
     std::tuple<int, int, int> m_dateDeces;
     bool statut;
+
 public:
-    static Tuple dateDeces = std::make_tuple(31, 12, 9999);
     virtual ~Personne();
 
     virtual std::string reqPersonneFormate() const;
