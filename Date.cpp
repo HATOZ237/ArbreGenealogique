@@ -13,7 +13,7 @@
 #include <sstream>
 #include <ctime>
 #include <iostream>
-static const long MAX_SECONDE = 2145848400;
+static const long MAX_SECONDE = 2145848400;// etait 2145848400
 static const long JOUR_EN_SECONDES = 60 * 60 * 24;
 static const long MIN_SECONDE = 5 * 60 * 60; // 5 heure par rapport à Greenwich
 
@@ -225,7 +225,7 @@ bool Date::validerDate(long p_jour, long p_mois, long p_annee)
 {
 	long JourParMois[] =
 	{ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-	static const long DEBUT_TEMPS = 1970;
+	static const long DEBUT_TEMPS = 1900;//etait 1970
 	static const long FIN_TEMPS = 2037;
 
 	bool valide = false;

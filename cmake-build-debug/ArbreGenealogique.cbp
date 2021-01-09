@@ -162,6 +162,9 @@
 		<Unit filename="C:/Users/Duroy/CLionProjects/ArbreGenealogique/Personne.h">
 			<Option target="ArbreGenealogique"/>
 		</Unit>
+		<Unit filename="C:/Users/Duroy/CLionProjects/ArbreGenealogique/PersonneException.h">
+			<Option target="ArbreGenealogique"/>
+		</Unit>
 		<Unit filename="C:/Users/Duroy/CLionProjects/ArbreGenealogique/main.cpp">
 			<Option target="main"/>
 		</Unit>

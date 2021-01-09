@@ -7,40 +7,49 @@
 
 #include <string>
 #include <ostream>
-#include "Date.h"
+//#include "Date.h"
+#include <tuple>
+#include "ContratException.h"
+#include "PersonneException.h"
+#include <vector>
+
+typedef std::tuple<int, int, int> Tuple;
 
 class Personne {
 private:
     std::string m_nom;
     std::string m_prenom;
     std::string m_villeNaissance;
-    util::Date m_dateNaissance;
+    std::tuple<int, int, int> m_dateNaissance;
     char sexe;
     std::string m_Nas;
-    util::Date m_dateDeces;
-    bool statut;
     std::string m_groupeSanguin;
+    std::tuple<int, int, int> m_dateDeces;
+    bool statut;
+protected:
+    std::vector<Personne *> m_vFreres;
 public:
     virtual ~Personne();
-    virtual Personne* clone() const = 0;
 
-    friend std::ostream &operator<<(std::ostream &os, const Personne &personne);
+    virtual std::string reqPersonneFormate() const;
+
+    virtual Personne *clone() const ;
 
     void setMNas(const std::string &mNas);
 
-    void setMDateDeces(const util::Date &mDateDeces);
+    //void setMDateDeces(const util::Date &mDateDeces);
 
     void setStatut(bool statut);
 
     void setMGroupeSanguin(const std::string &mGroupeSanguin);
 
-    bool operator<(const Personne &rhs) const;
+    /*bool operator<(const Personne &rhs) const;
 
     bool operator>(const Personne &rhs) const;
 
     bool operator<=(const Personne &rhs) const;
 
-    bool operator>=(const Personne &rhs) const;
+    bool operator>=(const Personne &rhs) const;*/
 
     bool operator==(const Personne &rhs) const;
 
@@ -52,23 +61,27 @@ public:
 
     const std::string &getMVilleNaissance() const;
 
-    const util::Date &getMDateNaissance() const;
+    //const util::Date &getMDateNaissance() const;
 
     char getSexe() const;
 
     const std::string &getMNas() const;
 
-    const util::Date &getMDateDeces() const;
+    //const util::Date &getMDateDeces() const;
 
     bool isStatut() const;
 
     const std::string &getMGroupeSanguin() const;
 
-
     Personne(const std::string &mNom, const std::string &mPrenom, const std::string &mVilleNaissance,
-             const util::Date &mDateNaissance, char sexe, const std::string &mNas, const util::Date &mDateDeces,
-             bool statut, const std::string &mGroupeSanguin);
+             const std::tuple<int, int, int> &mDateNaissance, char sexe, const std::string &mNas,
+             const std::string &mGroupeSanguin, const std::tuple<int, int, int> &mDateDeces, bool statut);
 
+    const Tuple &getMDateDeces() const;
+
+    void setMDateDeces(const std::tuple<int, int, int> &mDateDeces);
+
+    const std::tuple<int, int, int> &getMDateNaissance() const;
 
 };
 

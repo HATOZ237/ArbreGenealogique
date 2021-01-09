@@ -10,22 +10,46 @@
 #include <ostream>
 
 class Enfant: public Personne{
-private:
-    std::vector<Enfant*> m_vFreres;
 public:
-    Enfant(const std::string &mNom, const std::string &mPrenom, const std::string &mVilleNaissance,
-           const util::Date &mDateNaissance, char sexe, const std::string &mNas, const util::Date &mDateDeces,
-           bool statut, const std::string &mGroupeSanguin);
+    /**
+     * @brief
+     * @param mNom
+     * @param mPrenom
+     * @param mVilleNaissance
+     * @param mDateNaissance
+     * @param sexe
+     * @param mNas
+     * @param mDateDeces
+     * @param statut
+     * @param mGroupeSanguin
+     */
 
     virtual ~Enfant();
 
-    friend std::ostream &operator<<(std::ostream &os, const Enfant &enfant);
+    //friend std::ostream &operator<<(std::ostream &os, const Enfant &enfant);
 
-    void AjouterFrere(const Enfant& enfant);
+    void AjouterFrere(const Personne& enfant);
 
-    void retirerFrere(const Enfant& enfant);
+    void retirerFrere(const std::string& p_nas);
 
-    bool EstFrere();
+    //bool EstFrere();
+
+    bool EstDejaFrere(const Personne& enfant);
+
+    Personne* clone() const;
+
+    Enfant &operator=(const Enfant& enfant );
+
+    /*Enfant(const std::string &mNom, const std::string &mPrenom, const std::string &mVilleNaissance,
+           const std::tuple<int, int, int> &mDateNaissance, char sexe, const std::string &mNas,
+           const std::string &mGroupeSanguin, const std::tuple<int, int, int> &mDateDeces, bool statut,
+           const Enfant &enfant);*/
+
+    std::string reqPersonneFormate() const;
+
+    Enfant(const std::string &mNom, const std::string &mPrenom, const std::string &mVilleNaissance,
+           const std::tuple<int, int, int> &mDateNaissance, char sexe, const std::string &mNas,
+           const std::string &mGroupeSanguin, const std::tuple<int, int, int> &mDateDeces, bool statut);
 
 
 };
